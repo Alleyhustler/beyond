@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beyond comprehension.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Roboto+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Mono', monospace;
+            background-color: #ffc4c4;
+            color: #300505;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('hebbkx1anhila5yf.public.blob.vercel-storage.com/dna-background-Wd9Xt0Xt9Ue9Ue9Ue9Ue9Ue9Ue9Ue.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+            filter: hue-rotate(180deg) brightness(0.5);
+        }
+        .site-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: bold;
+            background-color: rgba(36, 2, 11, 0.1);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(37, 3, 3, 0.3);
+            text-align: center;
+            margin-top: 20px;
+            color: #300505;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .site-title:hover {
+            background-color: rgba(36, 2, 11, 0.1);
+        }
+        .site-title a {
+            color: #300505;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(36, 2, 11, 0.1);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .social-links a {
+            text-decoration: none;
+            color: #300505;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #300605;
+        }
+        main {
+            padding-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .button {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(36, 2, 11, 0.1);
+        }
+        .button-primary {
+            background-color: #674141;
+            color: #000;
+        }
+        .button-secondary {
+            background-color: transparent;
+            color: #300505;
+            border: 2px solid #300505;
+        }
+        .button-secondary:hover {
+            background-color: #300505;
+            color: #000;
+        }
+        .links-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: rgba(36, 2, 11, 0.1);
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid rgba(36, 2, 11, 0.1);
+            color: #300505;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .link:hover {
+            background-color: rgba(36, 2, 11, 0.1);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .research-card {
+            background-color: rgba(0, 255, 0, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(36, 2, 11, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #300505;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(36, 2, 11, 0.1);
+        }
+        .research-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            filter: hue-rotate(180deg) brightness(0.8) contrast(1.2);
+        }
+        .research-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            margin: 10px 0;
+            color: #300505;
+        }
+        .research-card .marketcap {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .research-card .labels {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 12px;
+            color: #300605;
+        }
+        .research-card.upcoming-placeholder {
+            background-color: rgba(0, 255, 0, 0.02);
+            border: 1px dashed #300605;
+        }
+        .research-card.upcoming-placeholder h2 {
+            color: #300605;
+        }
+        .research-card.upcoming-placeholder .marketcap {
+            color: #300605;
+        }
+        .research-card.upcoming-placeholder .labels {
+            color: #280607d4;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .links-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1 class="site-title">
+            <a href="/">beyond comprehension fun.</a>
+        </h1>
+    </header>
+    <main class="container">
+        <div class="buttons-container">
+            <button class="button button-primary">Active • 1 </button>
+            <button class="button button-secondary">Upcoming • 3</button>
+            <button class="button button-secondary">Contract Address HERE</button>
+        </div>
+        <div class="links-container">
+            <a href="https://x.com/beyond_fun_" class="link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#300505">
+                    <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path>
+                </svg>
+                Classified Briefing TWITTER
+            </a>
+            <a href="https://t.me/+5eUmo3L9s2JiMWU0" class="link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#300505" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                Protocols TG
+            </a>
+            <a href="#" class="link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#300505" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Submit Findings ON PAUSE TILL DEX
+            </a>
+        </div>
+        
+        <div class="grid">
+            <div class="research-card">
+                <img src="transuraniumco.vercel.app/nept.gif" alt="Uranium Enrichment Process">
+                <h2>YAPPAXY-237 <span style="color: #300605;">$SNUS</span></h2>
+                <div class="marketcap">
+                    <span style="color: #300605;">SOL 169,452.23</span>
+                    <span style="color: #300505;">1.5%</span>
+                </div>
+                <div class="labels">
+                    <span> VALUE</span>
+                    <span>ENRICHMENT</span>
+                </div>
+                <div>
+                    <a href="https://pump.fun/" class="button button-primary" target="_blank" rel="noopener noreferrer" style="margin-top: 10px; display: block; text-align: center;">Access Lab</a>
+                </div>
+            </div>
+
+            <div class="research-card upcoming-placeholder">
+                <h2>PUMPEDROM-5823 <span style="color: #300605;">$TBA</span></h2>
+                <div class="marketcap">
+                    <span style="color: #300605;">$ 0.00</span>
+                    <span style="color: #300505;">N/A</span>
+                </div>
+                <div class="labels">
+                    <span> VALUE</span>
+                    <span>ENRICHMENT</span>
+                </div>
+                <div>
+                    <h1> NOT LIVE</h1>
+                </div>
+            </div>
+
+            <div class="research-card upcoming-placeholder">
+                <h2>MOONXA-12 <span style="color: #300605;">$TBA</span></h2>
+                <div class="marketcap">
+                    <span style="color: #300605;">$ 0.00</span>
+                    <span style="color: #300505;">N/A</span>
+                </div>
+                <div class="labels">
+                    <span> VALUE</span>
+                    <span>ENRICHMENT</span>
+                </div>
+                <div>
+                    <h1> NOT LIVE</h1>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+</body></html>
